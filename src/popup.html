@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script type="module" src="weightItem.js"></script>
+    <script type="module" src="popup.js"></script>
+    <link rel="stylesheet" href="css/popup.css">
+    </script>
+  </head>
+  <body>
+    <h3>Reactions for Github Issues</h3>
+    <div>Order the comments based on the reactions they got</div>
+    <div id="visit">
+      <a href="https://muhsinaldemir.com/" target="_blank">Blog!</a>
+      <a href="https://muhsinaldemir.com/" target="_blank" style="padding-left: 10px;">Source!</a>
+    </div>
+    <hr/>
+    <h4 style="color: red; text-decoration: underline">
+      Set Different Weights for Reactions:
+    </h4>
+    <div class="reactions">
+      <weight-item name="THUMBS_UP" img="./images/reactions/thumbs_up.png"></weight-item>
+      <weight-item name="HOORAY" img="./images/reactions/hooray.png"></weight-item>
+      <weight-item name="HEART" img="./images/reactions/heart.png"></weight-item>
+      <weight-item name="ROCKET" img="./images/reactions/rocket.png"></weight-item>
+      <weight-item name="LAUGH" img="./images/reactions/laugh.png"></weight-item>
+      <weight-item name="CONFUSED" img="./images/reactions/confused.png"></weight-item>
+      <weight-item name="EYES" img="./images/reactions/eyes.png"></weight-item>
+      <weight-item name="THUMBS_DOWN" img="./images/reactions/thumbs_down.png"></weight-item>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: center; ">
+      <button id="refresh" type="button" style="color:#fff; background-color:#d73a49; border-color:transparent; border:1px solid; border-radius:15px; padding: 5px 12px">Refresh Page</button>
+    </div>
+    <hr/>
+      <p style="font-size: x-small; padding-bottom: 10px" >All emojis designed by <a href="https://openmoji.org/">OpenMoji</a> – the open-source emoji and icon project. License: <a href="https://creativecommons.org/licenses/by-sa/4.0/#"> CC BY-SA 4.0 </a></p>
+  </body>
+</html>

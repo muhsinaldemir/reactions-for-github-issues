@@ -1,0 +1,47 @@
+{
+  "name": "Reactions for Github Issues",
+  "version": "1.0",
+  "description": "Order comments in Github issues by popularity",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "webNavigation",
+    "https://github.com/*/issues/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*/issues/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "commentOrderButton.js"
+      ],
+      "css": [
+        "css/style.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icons/icon16.png",
+      "48": "images/icons/icon48.png",
+      "128": "images/icons/icon128.png"
+    },
+    "icons": {
+      "16": "images/icons/icon16.png",
+      "48": "images/icons/icon48.png",
+      "128": "images/icons/icon128.png"
+    }
+  },
+  "manifest_version": 2
+}

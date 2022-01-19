@@ -1,0 +1,23 @@
+#showOrderedButton {
+  color: #fff;
+  background-color: #d73a49;
+  border-color: transparent;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 5px 12px;
+}
+
+#showOrderedButtonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#refresh {
+  color: #fff;
+  background-color: #d73a49;
+  border-color: transparent;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 5px 12px;
+}
