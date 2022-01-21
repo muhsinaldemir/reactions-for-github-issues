@@ -1,5 +1,3 @@
-let reactionWeights = {};
-
 // Refreshes the current tab by clicking the Refresh button in popup page
 const popupMenuRefreshButton = document.getElementById('refresh');
 if (popupMenuRefreshButton) {
@@ -67,7 +65,7 @@ export async function getAllReactionWeightsFromStorage() {
   return weights;
 }
 
-export function countReactionsTotalWeight(comment) {
+export function countReactionsTotalWeight(reactionWeights, comment) {
   let totalWeight = 0;
   let reactionCount;
   const reactions = comment.querySelectorAll('button.reaction-summary-item');
@@ -90,19 +88,12 @@ export function countReactionsTotalWeight(comment) {
   return totalWeight;
 }
 
-getAllReactionWeightsFromStorage().then((weights) => {
-  reactionWeights = weights;
-});
-
-export function orderComments(comments) {
-  const orderedComments = [];
-
-  comments.forEach((el) => {
-    orderedComments.push(el);
-  });
-
+export async function orderComments(comments) {
+  const orderedComments = [...comments];
+  const reactionWeights = await getAllReactionWeightsFromStorage();
   /* Sort ordered comments by their reaction points */
-  orderedComments.sort((a, b) => countReactionsTotalWeight(b) - countReactionsTotalWeight(a));
-
+  orderedComments.sort(
+    (a, b) => countReactionsTotalWeight(reactionWeights, b) - countReactionsTotalWeight(reactionWeights, a),
+  );
   return orderedComments;
 }

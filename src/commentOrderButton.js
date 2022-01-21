@@ -42,10 +42,10 @@ function showUnorderedComments() {
   showOrderedButton.innerText = 'Show Comments Ordered by Reaction';
 }
 
-function placeOrderedCommentsOnDom() {
+async function placeOrderedCommentsOnDom() {
   const comments = document.querySelectorAll('.js-timeline-item');
-  const orderedComments = orderComments(comments);
-
+  const orderedComments = await orderComments(comments);
+  console.log('orderedComments', orderedComments);
   // Copy contents of orderedComments into orderedCommentsContainer
   orderedComments.forEach((el) => orderedCommentsContainer.appendChild(el.cloneNode(true)));
 
