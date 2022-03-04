@@ -1,3 +1,5 @@
+import config from './config.js';
+
 // Refreshes the current tab by clicking the Refresh button in popup page
 const popupMenuRefreshButton = document.getElementById('refresh');
 if (popupMenuRefreshButton) {
@@ -7,17 +9,6 @@ if (popupMenuRefreshButton) {
     });
   };
 }
-
-export const initialWeights = {
-  THUMBS_UP: 0.9,
-  HOORAY: 0.7,
-  HEART: 0.8,
-  ROCKET: 0.9,
-  LAUGH: 0.5,
-  CONFUSED: -0.1,
-  EYES: -0.1,
-  THUMBS_DOWN: -1.0,
-};
 
 export function getStorageData(key) {
   return new Promise((resolve, reject) => {
@@ -49,13 +40,13 @@ export async function getOneReactionWeightFromStorage(key) {
     return weight[key];
   }
   // If no weight data is present in the storage (in the first run maybe) set it to initial value.
-  setStorageData(key, initialWeights[key]);
-  return initialWeights[key];
+  setStorageData(key, config.initialWeights[key]);
+  return config.initialWeights[key];
 }
 
 export async function getAllReactionWeightsFromStorage() {
   const weights = {};
-  for (const [key, value] of Object.entries(initialWeights)) {
+  for (const [key, value] of Object.entries(config.initialWeights)) {
     const weight = await getStorageData(key);
 
     const wValue = weight[key] ?? value;

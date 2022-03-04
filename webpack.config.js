@@ -23,6 +23,7 @@ module.exports = {
       { from: 'src/background.js' },
       { from: 'src/utils.js' },
       { from: 'src/weightItem.js' },
+      { from: 'src/config.js' },
       { from: 'src/css', to: 'css/[name][ext]' },
     ],
   }),
