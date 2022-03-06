@@ -97,3 +97,34 @@ export async function orderComments(comments) {
   );
   return orderedComments;
 }
+
+/* element: Element we want to create, cannot be empty and should be of type string: i.e 'div' or 'span'
+parent: the parent element we want this element to be in, should be of type HtmlElement and can be null/undefined
+options: the options/attributes and eventlisteners we want the newly created element to have, can be null/undefined,
+if provided; should be of type object options= {properties: { key: value}, eventListeners: { event: fn}}
+return value: created element */
+
+export function createElement(element, parent, options) {
+  if (!element || typeof element !== 'string') return undefined;
+
+  const newElement = document.createElement(element);
+
+  if (parent) parent.appendChild(newElement);
+
+  if (options && typeof options === 'object') {
+    const { properties, eventListeners } = options;
+
+    if (eventListeners) {
+      Object.entries(eventListeners).forEach(
+        ([key, value]) => newElement.addEventListener(key, value),
+      );
+    }
+
+    if (properties) {
+      Object.entries(properties).forEach(
+        ([key, value]) => newElement.setAttribute(key, value),
+      );
+    }
+  }
+  return newElement;
+}
