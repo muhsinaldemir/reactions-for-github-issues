@@ -36,12 +36,12 @@
       "16": "images/icons/icon16.png",
       "48": "images/icons/icon48.png",
       "128": "images/icons/icon128.png"
-    },
-    "icons": {
-      "16": "images/icons/icon16.png",
-      "48": "images/icons/icon48.png",
-      "128": "images/icons/icon128.png"
     }
+  },
+  "icons": {
+    "16": "images/icons/icon16.png",
+    "48": "images/icons/icon48.png",
+    "128": "images/icons/icon128.png"
   },
   "manifest_version": 2
 }
