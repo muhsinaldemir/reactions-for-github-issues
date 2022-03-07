@@ -12,6 +12,6 @@ chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
 chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
   const regex = /(http|https):\/\/(www\.)?github\.com\/.+\/.+\/issues\/\d+/;
   if ((details.url).match(regex)) {
-    chrome.scripting.executeScript({ target: { tabId: window.tabs[0].id }, files: 'commentOrderButton.js' }, () => chrome.runtime.lastError);
+    chrome.scripting.executeScript({ target: { tabId: details.tabId }, files: ['commentOrderButton.js'] }, () => chrome.runtime.lastError);
   }
 });

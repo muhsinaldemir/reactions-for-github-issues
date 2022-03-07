@@ -3,11 +3,10 @@
   "version": "1.0",
   "description": "Order comments in Github issues by popularity",
   "permissions": [
-    "tabs",
-    "activeTab",
     "declarativeContent",
     "storage",
-    "webNavigation"
+    "webNavigation",
+    "scripting"
   ],
   "host_permissions": [
     "https://github.com/*/issues/*"
