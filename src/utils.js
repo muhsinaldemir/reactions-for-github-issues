@@ -67,7 +67,6 @@ export async function getAllReactionWeightsFromStorage() {
 
 export function countReactionsTotalWeight(reactionWeights, comment) {
   let totalWeight = 0;
-  let reactionCount;
   const reactions = comment.querySelectorAll('button.reaction-summary-item');
   /* For each reaction calculate its count*weight and
   add it to total reaction count for this comment
@@ -79,7 +78,7 @@ export function countReactionsTotalWeight(reactionWeights, comment) {
     const weight = reactionWeights[el.value.split(' ')[0]] ?? 0;
     // Add it to the total count for this comment
     // reaction counts is like: "👍\n9" split it and get its first part
-    [, reactionCount] = el.innerText.split('\n');
+    const [, reactionCount] = el.innerText.split('\n');
 
     if (Number.isInteger(parseInt(reactionCount, 10))) {
       totalWeight += weight * parseInt(reactionCount, 10);
