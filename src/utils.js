@@ -19,12 +19,16 @@ export const initialWeights = {
   THUMBS_DOWN: -1.0,
 };
 
+function handleStorageData(onSuccess, onError, result) {
+  chrome.runtime.lastError
+    ? onError(Error(chrome.runtime.lastError.message))
+    : onSuccess(result);
+}
+
 export function getStorageData(key) {
   return new Promise((resolve, reject) => {
     chrome.storage.sync.get(key, (result) => (
-      chrome.runtime.lastError
-        ? reject(Error(chrome.runtime.lastError.message))
-        : resolve(result)
+      handleStorageData(resolve, reject, result)
     ));
   });
 }
@@ -32,12 +36,8 @@ export function getStorageData(key) {
 export function setStorageData(key, value) {
   return new Promise((resolve, reject) => {
     chrome.storage.sync.set(
-      {
-        [key]: value,
-      },
-      () => (chrome.runtime.lastError
-        ? reject(Error(chrome.runtime.lastError.message))
-        : resolve()),
+      { [key]: value },
+      handleStorageData(resolve, reject, value),
     );
   });
 }
@@ -49,8 +49,7 @@ export async function getOneReactionWeightFromStorage(key) {
     return weight[key];
   }
   // If no weight data is present in the storage (in the first run maybe) set it to initial value.
-  setStorageData(key, initialWeights[key]);
-  return initialWeights[key];
+  return setStorageData(key, initialWeights[key]);
 }
 
 export async function getAllReactionWeightsFromStorage() {
