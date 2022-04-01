@@ -7,14 +7,14 @@ let isAllCommentsOrdered = false;
 const showOrderedButton = document.createElement('button');
 showOrderedButton.id = 'showOrderedButton';
 showOrderedButton.innerText = 'Show Comments Ordered by Reaction';
-const showOrderedButtonDiv = document.createElement('div');
-showOrderedButtonDiv.id = 'showOrderedButtonDiv';
-showOrderedButtonDiv.appendChild(showOrderedButton);
+const showOrderedButtonContainer = document.createElement('div');
+showOrderedButtonContainer.id = 'showOrderedButtonDiv';
+showOrderedButtonContainer.appendChild(showOrderedButton);
 
 // Add show ordered button below the issue question
 const question = document.querySelector('.js-comment-container');
 if (question) {
-  question.insertAdjacentElement('afterend', showOrderedButtonDiv);
+  question.insertAdjacentElement('afterend', showOrderedButtonContainer);
 }
 
 // Group original question ordering in a container
