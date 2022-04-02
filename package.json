@@ -1,14 +1,13 @@
 {
-  "name": "reaction-for-github-issues",
+  "name": "most-reacted-comments-for-github-issues",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A browser extension to reorder comments in a Github issue page based on their reactions",
   "scripts": {
     "dev": "webpack --watch --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Muhsin Aldemir",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/plugin-transform-runtime": "^7.16.5",

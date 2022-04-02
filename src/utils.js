@@ -10,12 +10,16 @@ if (popupMenuRefreshButton) {
   };
 }
 
+function handleStorageData(onSuccess, onError, result) {
+  chrome.runtime.lastError
+    ? onError(Error(chrome.runtime.lastError.message))
+    : onSuccess(result);
+}
+
 export function getStorageData(key) {
   return new Promise((resolve, reject) => {
     chrome.storage.sync.get(key, (result) => (
-      chrome.runtime.lastError
-        ? reject(Error(chrome.runtime.lastError.message))
-        : resolve(result)
+      handleStorageData(resolve, reject, result)
     ));
   });
 }
@@ -23,12 +27,8 @@ export function getStorageData(key) {
 export function setStorageData(key, value) {
   return new Promise((resolve, reject) => {
     chrome.storage.sync.set(
-      {
-        [key]: value,
-      },
-      () => (chrome.runtime.lastError
-        ? reject(Error(chrome.runtime.lastError.message))
-        : resolve()),
+      { [key]: value },
+      handleStorageData(resolve, reject, value),
     );
   });
 }
@@ -40,8 +40,7 @@ export async function getOneReactionWeightFromStorage(key) {
     return weight[key];
   }
   // If no weight data is present in the storage (in the first run maybe) set it to initial value.
-  setStorageData(key, config.initialWeights[key]);
-  return config.initialWeights[key];
+  return setStorageData(key, config.initialWeights[key]);
 }
 
 export async function getAllReactionWeightsFromStorage() {
@@ -58,7 +57,6 @@ export async function getAllReactionWeightsFromStorage() {
 
 export function countReactionsTotalWeight(reactionWeights, comment) {
   let totalWeight = 0;
-  let reactionCount;
   const reactions = comment.querySelectorAll('button.reaction-summary-item');
   /* For each reaction calculate its count*weight and
   add it to total reaction count for this comment
@@ -70,7 +68,7 @@ export function countReactionsTotalWeight(reactionWeights, comment) {
     const weight = reactionWeights[el.value.split(' ')[0]] ?? 0;
     // Add it to the total count for this comment
     // reaction counts is like: "👍\n9" split it and get its first part
-    [, reactionCount] = el.innerText.split('\n');
+    const [, reactionCount] = el.innerText.split('\n');
 
     if (Number.isInteger(parseInt(reactionCount, 10))) {
       totalWeight += weight * parseInt(reactionCount, 10);
@@ -87,4 +85,35 @@ export async function orderComments(comments) {
     (a, b) => countReactionsTotalWeight(reactionWeights, b) - countReactionsTotalWeight(reactionWeights, a),
   );
   return orderedComments;
+}
+
+/* element: Element we want to create, cannot be empty and should be of type string: i.e 'div' or 'span'
+parent: the parent element we want this element to be in, should be of type HtmlElement and can be null/undefined
+options: the options/attributes and eventlisteners we want the newly created element to have, can be null/undefined,
+if provided; should be of type object options= {properties: { key: value}, eventListeners: { event: fn}}
+return value: created element */
+
+export function createElement(element, parent, options) {
+  if (!element || typeof element !== 'string') return undefined;
+
+  const newElement = document.createElement(element);
+
+  if (parent) parent.appendChild(newElement);
+
+  if (options && typeof options === 'object') {
+    const { properties, eventListeners } = options;
+
+    if (eventListeners) {
+      Object.entries(eventListeners).forEach(
+        ([key, value]) => newElement.addEventListener(key, value),
+      );
+    }
+
+    if (properties) {
+      Object.entries(properties).forEach(
+        ([key, value]) => newElement.setAttribute(key, value),
+      );
+    }
+  }
+  return newElement;
 }

@@ -6,16 +6,17 @@ let isAllCommentsOrdered = false;
 
 // Creating a show ordered button and its enclosing div
 const showOrderedButton = document.createElement('button');
+
 showOrderedButton.id = config.inline.showOrderedButtonId;
 showOrderedButton.innerText = config.inline.orderReactionsButtonInnerText;
-const showOrderedButtonDiv = document.createElement('div');
-showOrderedButtonDiv.id = config.inline.showOrderedButtonDivId;
-showOrderedButtonDiv.appendChild(showOrderedButton);
+const showOrderedButtonContainer = document.createElement('div');
+showOrderedButtonContainer.id = config.inline.showOrderedButtonDivId;
+showOrderedButtonContainer.appendChild(showOrderedButton);
 
 // Add show ordered button below the issue question
 const question = document.querySelector(`.${config.github.githubIssueCommentsClassName}`);
 if (question) {
-  question.insertAdjacentElement('afterend', showOrderedButtonDiv);
+  question.insertAdjacentElement('afterend', showOrderedButtonContainer);
 }
 
 // Group original question ordering in a container

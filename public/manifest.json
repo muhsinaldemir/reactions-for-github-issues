@@ -3,11 +3,12 @@
   "version": "1.0",
   "description": "Order comments in Github issues by popularity",
   "permissions": [
-    "tabs",
-    "activeTab",
     "declarativeContent",
     "storage",
     "webNavigation",
+    "scripting"
+  ],
+  "host_permissions": [
     "https://github.com/*/issues/*"
   ],
   "content_scripts": [
@@ -25,23 +26,20 @@
     }
   ],
   "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
+    "service_worker": "background.js"
   },
-  "page_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "images/icons/icon16.png",
       "48": "images/icons/icon48.png",
       "128": "images/icons/icon128.png"
-    },
-    "icons": {
-      "16": "images/icons/icon16.png",
-      "48": "images/icons/icon48.png",
-      "128": "images/icons/icon128.png"
     }
   },
-  "manifest_version": 2
+  "icons": {
+    "16": "images/icons/icon16.png",
+    "48": "images/icons/icon48.png",
+    "128": "images/icons/icon128.png"
+  },
+  "manifest_version": 3
 }

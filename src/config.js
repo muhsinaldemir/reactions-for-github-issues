@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   github: {
     githubIssueCommentsClassName: 'js-timeline-item',
     loadButtonInnerText: 'Load More',
@@ -25,3 +25,5 @@ module.exports = {
     THUMBS_DOWN: -1.0,
   },
 };
+
+export default config;
