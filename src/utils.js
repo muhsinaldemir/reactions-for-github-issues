@@ -16,12 +16,6 @@ function handleStorageData(onSuccess, onError, result) {
     : onSuccess(result);
 }
 
-function handleStorageData(onSuccess, onError, result) {
-  chrome.runtime.lastError
-    ? onError(Error(chrome.runtime.lastError.message))
-    : onSuccess(result);
-}
-
 export function getStorageData(key) {
   return new Promise((resolve, reject) => {
     chrome.storage.sync.get(key, (result) => (
