@@ -1,0 +1,32 @@
+body {
+    height: 180px;
+    width: 220px;
+    box-sizing: border-box;
+  }
+  .reactions {
+    display: flex;
+    flex-direction: column;
+  }
+  .reaction-item {
+    display: flex;
+    flex-direction: row;
+  }
+  img {
+    width: 20px;
+    height: 20px;
+  }
+  #visit {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.icon {
+  margin-right: 5px;
+}
+.slider {
+margin-left: 10px;
+}
