@@ -8,7 +8,7 @@ One way people can upvote/downvote comments are via reactions. In this extension
 Thus you could save so much time finding relevant answers to your problems.
 
 ## How it works
-![reaction-for-github-issues-explain](https://user-images.githubusercontent.com/38760332/169728042-8e0788fe-f79b-43de-9ad8-5b42e72004e4.gif)
+![reactions-for-github-issues-explain](https://user-images.githubusercontent.com/38760332/169728520-dacb7aa9-25b1-4e4d-b7b7-569e7792f2f9.gif)
 
 ## Installation
 Chrome Webstore and Add-ons for Firefox soon. 
