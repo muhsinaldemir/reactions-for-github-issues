@@ -41,6 +41,12 @@ Chrome for now. Firefox support is planned.
 
 Also whenever you make changes to the extension code, go back to the Extensions page (chrome://extensions) and click the reload link (circle arrow) under the extension entry. Otherwise you changes will not be updated in the extension.
 
+## Optimizing Emoji Weights
+
+You can also optimize your desired emoji weights in extension popup.
+
+![popup](https://user-images.githubusercontent.com/38760332/169729471-bc4bcb6f-81fb-43ce-9c33-58a3f9861419.png)
+
 ## Acknowledgements & Disclaimer
 This project is not affiliated with, sponsored by, or endorsed by GitHub Inc.
 
