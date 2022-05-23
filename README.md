@@ -11,9 +11,16 @@ Thus you could save so much time finding relevant answers to your problems.
 ![reactions-for-github-issues-explain](https://user-images.githubusercontent.com/38760332/169728520-dacb7aa9-25b1-4e4d-b7b7-569e7792f2f9.gif)
 
 ## Installation
-Chrome Webstore and Add-ons for Firefox soon. 
+:zap:	Chrome Webstore and Add-ons for Firefox soon. 
 
-For now you can try this extension for Google Chrome with the development steps explained below.
+For now you can try this extension for Google Chrome with the steps below.
+
+1. Clone / Fork this repo
+2. Visit chrome://extensions in your browser
+3. Enable developer mode
+4. Click load unpacked and select dist folder in the prompt that is displayed
+5. The extension should now be loaded, go to a Github issue page and see the project in action
+
 
 ## How to use
 Clone this repo and follow the development steps explained below.
@@ -39,7 +46,7 @@ Chrome for now. Firefox support is planned.
 6. Click load unpacked and select dist folder in the prompt that is displayed
 7. The extension should now be loaded, go to a Github issue page and see the project in action
 
-Also whenever you make changes to the extension code, go back to the Extensions page (chrome://extensions) and click the reload link (circle arrow) under the extension entry. Otherwise you changes will not be updated in the extension.
+Also whenever you make changes to the extension code, go back to the Extensions page (chrome://extensions) and click the reload link (circle arrow) under the extension entry. Otherwise your changes will not be updated in the extension.
 
 ## Optimizing Emoji Weights
 
