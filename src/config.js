@@ -1,9 +1,10 @@
 const config = {
   github: {
     githubIssueCommentsClassName: 'js-timeline-item',
+    githubIssueQuestionClassName: 'js-command-palette-issue-body',
+    githubIssueReactionsClassName: 'social-reaction-summary-item',
     loadButtonInnerText: 'Load More',
     loadButtonTextWhileLoading: 'Loading',
-
   },
   inline: {
     orderReactionsButtonInnerText: 'Show Comments Ordered by Reaction',

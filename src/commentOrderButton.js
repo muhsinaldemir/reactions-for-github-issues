@@ -14,7 +14,7 @@ showOrderedButtonContainer.id = config.inline.showOrderedButtonDivId;
 showOrderedButtonContainer.appendChild(showOrderedButton);
 
 // Add show ordered button below the issue question
-const question = document.querySelector(`.${config.github.githubIssueCommentsClassName}`);
+const question = document.querySelector(`.${config.github.githubIssueQuestionClassName}`);
 if (question) {
   question.insertAdjacentElement('afterend', showOrderedButtonContainer);
 }

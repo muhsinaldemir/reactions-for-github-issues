@@ -57,7 +57,7 @@ export async function getAllReactionWeightsFromStorage() {
 
 export function countReactionsTotalWeight(reactionWeights, comment) {
   let totalWeight = 0;
-  const reactions = comment.querySelectorAll('button.reaction-summary-item');
+  const reactions = comment.querySelectorAll(`.${config.github.githubIssueReactionsClassName}`);
   /* For each reaction calculate its count*weight and
   add it to total reaction count for this comment
   */
